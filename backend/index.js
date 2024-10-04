@@ -44,8 +44,12 @@ app.delete("/:index", async (req, res) => {
     res.status(200).json({ status: true });
 });
 
-// Use process.env.PORT to log the correct port
-app.listen(PORT, () => {
-    console.log(`Server started on port ${PORT}`); // Log the correct port number
-    main();
-});
+const startServer = async () => {
+    await main(); // Call the main function to connect to the database
+    app.listen(PORT, () => {
+        console.log(`Server started on port ${PORT}`); // Log the correct port number
+    });
+};
+
+// Start the server
+startServer();
