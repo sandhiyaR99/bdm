@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import { MongoClient, ObjectId} from "mongodb"; // Don't forget to import ObjectId!
 
-const PORT = process.env.PORT || 5000;
+const PORT = 5000;
 
 const client = new MongoClient("mongodb+srv://sans:123@cluster0.or7gb.mongodb.net/");
 
