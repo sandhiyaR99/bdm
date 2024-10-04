@@ -48,7 +48,7 @@ const App = () => {
   }
 
   const deletedata = async (index) => {
-    await fetch(`https://bdm-5.onrender.com${index}`, {
+    await fetch(`https://bdm-5.onrender.com/${index}`, {
       method: "DELETE",
     });
     getdata()
