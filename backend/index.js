@@ -2,6 +2,8 @@ import express from "express"
 import cors from "cors"
 import { MongoClient, ObjectId } from "mongodb"
 
+const PORT = process.env.PORT || 3000;
+
 const client = new MongoClient("mongodb+srv://sans:123@cluster0.or7gb.mongodb.net/")
 
 let todolists;
@@ -43,7 +45,7 @@ app.delete("/:index", async(req, res) => {
     res.status(200).json({ status: true })
 })
 
-app.listen(5000, () => {
+app.listen(PORT, () => {
     console.log("server started on port no 5000");
     main()
 })
