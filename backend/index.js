@@ -1,8 +1,8 @@
 import express from "express"
 import cors from "cors"
-import { MongoClient, ObjectId } from "mongodb"
+import { MongoClient } from "mongodb"
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 const client = new MongoClient("mongodb+srv://sans:123@cluster0.or7gb.mongodb.net/")
 
@@ -35,13 +35,13 @@ app.post("/", async(req, res) => {
 app.put("/", async(req, res) => {
     const { ipvalue } = req.body
     const  index  = req.query.index
-    await todolists.updateOne({_id:new ObjectId(index)},{$set:{ipvalue}})
+    await todolists.updateOne({_id:new MongoClient.ObjectId(index)},{$set:{ipvalue}})
     res.status(200).json({ status: true })
 })
 
 app.delete("/:index", async(req, res) => {
     const { index } = req.params
-    await todolists.deleteOne({_id:new ObjectId(index)})
+    await todolists.deleteOne({_id:new MongoClient.ObjectId(index)})
     res.status(200).json({ status: true })
 })
 
